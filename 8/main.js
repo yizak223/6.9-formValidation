@@ -51,11 +51,9 @@ function checkForm() {
     }
     counter++
     console.log(counter);
-    if(counter==4)
+    if(counter==3)
     {
          startCONTER()
-            
-        
     }
     return false
     
@@ -73,7 +71,33 @@ font-size:40px`
 function countDown() {
     sec--
     myDiv.innerHTML=`00:${sec}`
+    firstNameInput.disabled = true;
+    lastNameInput.disabled = true;
+    birthdayInput.disabled = true;
+    emailInput.disabled = true;
+    phoneInput.disabled = true;
+    roleInput.disabled = true;
+    btnSubmit.disabled = true;
+    if(sec==0)
+    {
+        firstNameInput.disabled = false;
+        lastNameInput.disabled = false;
+        birthdayInput.disabled = false;
+        emailInput.disabled = false;
+        phoneInput.disabled = false;
+        roleInput.disabled = false;
+        btnSubmit.disabled = false;
+        sec=30
+        counter=0
+        stopCounter()
+        myDiv.innerHTML=`00:${sec}`
+    }
 }
+var counterInterval;
 function startCONTER() {
-    setInterval(countDown,1000)
+    counterInterval=setInterval(countDown,1000)
+ 
+}
+function stopCounter() {
+    clearInterval(counterInterval)
 }
