@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm" onsubmit=" return dontSent()"> 
+        <input type="number"  id="number1">
+        <input type="number"  id="number2">
+        <button id="sent"> submit</button>
+        <span id="span1"></span>
+    </form>
+    <!-- 2 -->
+    <form id="t2" onsubmit=" return  checkBigger()"> 
+        <input type="number"  id="num1">
+        <input type="number"  id="num2">
+        <button id="sentT2"> submit</button>
+        <span id="span2"></span>
+    </form>
+    <!-- 3 -->
+    <form id="t3" onsubmit=" return  checkequals()"> 
+        <input type="text"  id="text1">
+        <input type="text"  id="text2">
+        <button id="sentT3"> submit</button>
+        <span id="span3"></span>
+    </form>
+    <!-- 4 -->
+    <form onsubmit=" return  checkequalsLength()"> 
+        <input type="text"  id="text1T4">
+        <input type="text"  id="text2T4">
+        <button> submit</button>
+        <span id="span4"></span>
+    </form>
+    <!-- 5 -->
+    <form onsubmit=" return  checkequalsFirstChar()"> 
+        <input type="text"  id="text1T5">
+        <input type="text"  id="text2T5">
+        <button> submit</button>
+        <span id="span5"></span>
+    </form>
+    <!-- 6 -->
+    <form onsubmit=" return  checkequalsFirstChar()"> 
+        <input type="text"  id="text1T5">
+        <input type="text"  id="text2T5">
+        <button> submit</button>
+        <span id="span6"></span>
+    </form>
+    <script src="main.js"></script>
+</body>
+</html>
