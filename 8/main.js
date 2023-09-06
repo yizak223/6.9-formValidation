@@ -1,3 +1,4 @@
+var counter=0
 function checkForm() {
     if (
         firstNameInput.value[0] === firstNameInput.value[0].toUpperCase()
@@ -48,5 +49,31 @@ function checkForm() {
     else{
         phoneInput.style.border = ``
     }
+    counter++
+    console.log(counter);
+    if(counter==4)
+    {
+         startCONTER()
+            
+        
+    }
     return false
+    
+}
+
+var sec=30
+myDiv.innerHTML=`00:${sec}`
+myDiv.style=`float:right;
+border:solid;
+width:15vw;
+height:15vh;
+border-radius:20%;
+text-align:center;
+font-size:40px`
+function countDown() {
+    sec--
+    myDiv.innerHTML=`00:${sec}`
+}
+function startCONTER() {
+    setInterval(countDown,1000)
 }
