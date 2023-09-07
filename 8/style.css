@@ -55,3 +55,15 @@ input,button{
 label{
     color: rgb(241, 72, 72)
 }
+button{
+    background-color: rgb(21, 21, 248);
+    transition: 0.5s;
+    color: #ffffff;
+    border-radius: 10px;
+    width: 15vw;
+    height: 5vh;
+}
+button:hover{
+    color: rgb(21, 21, 248);
+    background-color: #ffffff;
+}
