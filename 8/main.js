@@ -1,3 +1,4 @@
+currentTime.inner
 var counter=0
 function checkForm() {
     if (
@@ -60,17 +61,11 @@ function checkForm() {
 }
 
 var sec=30
-myDiv.innerHTML=`00:${sec}`
-myDiv.style=`float:right;
-border:solid;
-width:15vw;
-height:15vh;
-border-radius:20%;
-text-align:center;
-font-size:40px`
+timerTitle.innerHTML=`if you wrong 4 times the timer will start count down 30 sec`
+timer.innerHTML=`00:${sec}`
 function countDown() {
     sec--
-    myDiv.innerHTML=`00:${sec}`
+    timerArea.innerHTML=`00:${sec}`
     firstNameInput.disabled = true;
     lastNameInput.disabled = true;
     birthdayInput.disabled = true;
@@ -90,7 +85,7 @@ function countDown() {
         sec=30
         counter=0
         stopCounter()
-        myDiv.innerHTML=`00:${sec}`
+        timerArea.innerHTML=`00:${sec}`
     }
 }
 var counterInterval;

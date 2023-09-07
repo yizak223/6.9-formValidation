@@ -4,26 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="currentTime"></div>
     <form onsubmit="return checkForm()">
-        <label id="firstNameLabel"></label><br>
+        <label id="firstNameLabel">Enter your details</label><br>
         <input id="firstNameInput" type="text" placeholder="enter name"><br>
         <label id="lastNameLable" ></label>
         <input id="lastNameInput" type="text" placeholder="last name"><br>
-        <label id="birthdayLabel" >enter birthday</label><br>
-        <input id="birthdayInput" type="date" ><br>
+        <label id="birthdayLabel" >enter birthday</label>
+        <input id="birthdayInput" type="date"><br>
         <label id="emailLabel" ></label>
         <input id="emailInput" type="text" placeholder="email@ssss.com"><br>
         <label id="phoneLabel" ></label>
         <input id="phoneInput" type="tel" placeholder="phone"><br>
-        <label id="roleLabel" >your role </label><br>
-        <input id="roleInput" type="text"><br>
+        <label id="roleLabel"></label>
+        <input id="roleInput" type="text" placeholder="your role"><br>
         <button id="btnSubmit">submit</button>
     </form>
-
-
-    <div id="myDiv"></div>
+    
+    <div id="timerArea"><p id='timerTitle'></p>
+    <div id="timer"></div></div>
     <script src="main.js"></script>
 </body>
 </html>
