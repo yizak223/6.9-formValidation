@@ -59,8 +59,6 @@ function checkForm() {
         birthdayLabel.innerHTML = `<span>*Your age is less then 16 or more then 65</span>`
         birthdayInput.style = `border:3px solid red;`
         birthdayLabel.style = `color:rgb(241, 72, 72);`
-        console.log(new Date().getFullYear() - +birthdayInput.value.substr(0, 4) > 16 );
-        console.log(new Date().getFullYear() - +birthdayInput.value.substr(0, 4) < 65 );
     }
     else {
         birthdayInput.style.border = ``
@@ -68,9 +66,7 @@ function checkForm() {
     if ((emailInput.value.lastIndexOf(".com") == emailInput.value.length - 4 != true
         && emailInput.value.lastIndexOf(".co.il") == emailInput.value.length - 6 != true)) {
         emailLabel.innerHTML = `<span>*Your email is not as exepted</span><br>`
-        emailInput.style.border = `3px solid red`
-        console.log(emailInput.value.lastIndexOf(".com") == emailInput.value.length - 4);
-        console.log(emailInput.value.lastIndexOf(".co.il") == emailInput.value.length - 6);
+        emailInput.style.border = `3px solid red`   
     }
     else {
         emailInput.style.border = ``
@@ -130,28 +126,54 @@ function startCONTER() {
 function stopCounter() {
     clearInterval(counterInterval)
 }
-function removeHoverEffect() {
-   
-}
+
 function isFirstNameValid() {
     if ( firstNameInput.value[0] === firstNameInput.value[0].toUpperCase()) {
         firstNameLabel.innerHTML = `<span></span>`
         return false;
     }else{        
-        firstNameInput.addEventListener('input',
-        function () {
-            firstNameLabel.innerHTML = `<span>*Name need to start with upper case</span>`
-        })
+        firstNameLabel.innerHTML = `<span>*Name need to start with upper case</span>`
         return true
     }
 }
-firstNameInput.addEventListener('input',
-    function () {
-        lastNameInput.disabled = isFirstNameValid()
-})
 firstNameInput.addEventListener('change',
     function () {
         lastNameInput.disabled = isFirstNameValid()
 })
-
-
+function isLastNameValid() {
+    if (lastNameInput.value.length <= 20) {
+        lastNameLable.innerHTML = `<span></span>`
+        return false
+    }
+    else{
+        lastNameLable.innerHTML = `<span>*Last name need to be less then 20 charat</span>`
+        return true
+    }
+}
+lastNameInput.addEventListener('change',
+function () {
+    birthdayInput.disabled=isLastNameValid()
+})
+function isBirthdayValid() {
+    if (new Date().getFullYear() - +birthdayInput.value.substr(0, 4) > 16 != true
+    || new Date().getFullYear() - +birthdayInput.value.substr(0, 4) < 65 != true) {
+        birthdayLabel.innerHTML = `<span>*Your age is less then 16 or more then 65</span>`
+        birthdayInput.style = `border:3px solid red;`
+        return true
+    } else {
+          birthdayInput.innerHTML = `<span>ff</span>`
+        return false
+    }
+}
+birthdayInput.addEventListener('change',forChangeBirh)
+function forChangeBirh() {
+    emailInput.disabled=isBirthdayValid()
+}
+function isEmailValid() {
+    if ((emailInput.value.lastIndexOf(".com") == emailInput.value.length - 4 != true
+        && emailInput.value.lastIndexOf(".co.il") == emailInput.value.length - 6 != true)) {
+        
+    } else {
+        
+    }
+}
