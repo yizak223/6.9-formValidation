@@ -1,10 +1,29 @@
 var currnetHour=new Date().getHours()
 var currentMinutes=new Date().getMinutes()
 var currentSeconds=new Date().getSeconds()
-currentTime.innerHTML+=`<h1>${currnetHour}:${currentMinutes}:${currentSeconds}</h1>`
-function name(params) {
-    
+var timeInterval;
+function showTime() {
+    currentTime.innerHTML=`<h1>${currnetHour}:${currentMinutes}:${currentSeconds}</h1>`
+    if(currentSeconds<10){
+        currentTime.innerHTML=`<h1>${currnetHour}:${currentMinutes}:0${currentSeconds}</h1>`
+        if (currentMinutes<10) {
+            currentTime.innerHTML=`<h1>${currnetHour}:0${currentMinutes}:0${currentSeconds}</h1>`
+        }
+    }
+    currentSeconds++
+    if(currentSeconds==60){
+        currentSeconds=0
+        currentMinutes++
+        if (currentMinutes==60) {
+            currentMinutes=0
+            currnetHour++
+        }
+    }
 }
+function timeActive() {
+    timeInterval=setInterval(showTime,1000)
+}
+timeActive()
 var counter=0
 function checkForm() {
     if (
