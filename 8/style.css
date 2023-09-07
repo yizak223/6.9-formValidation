@@ -1,45 +1,49 @@
-body{
+body {
     background-color: rgb(229, 210, 87);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#timer{
+#timer {
     background-color: rgb(0, 0, 0);
     color: rgb(255, 0, 0);
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border:solid;
-    width:10vw;
-    height:16vh;
-    text-align:center;
-    font-size:35px;
+    border: solid;
+    width: 10vw;
+    height: 16vh;
+    text-align: center;
+    font-size: 35px;
     font-weight: 700;
 }
-#timerTitle{
+
+#timerTitle {
     width: 10vw;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 0, 0);
     border: solid;
     text-align: center;
 }
-#currentTime{
+
+#currentTime {
     display: flex;
-    border:solid;
-    width:20vw;
-    height:15vh;
+    border: solid;
+    width: 20vw;
+    height: 15vh;
     background-color: rgba(65, 54, 54, 0.703);
     color: rgb(0, 132, 247);
     text-align: center;
     justify-content: space-evenly;
-    font-size:20px ;
+    font-size: 20px;
 }
-#birthdayLabel{
+
+#birthdayLabel {
     color: rgb(0, 0, 0);
 }
-form{
+
+form {
     background-color: rgba(54, 54, 54, 0.703);
     width: 30vw;
     height: 60vh;
@@ -49,13 +53,17 @@ form{
     justify-content: space-around;
     border-radius: 5%;
 }
-input,button{
+
+input,
+button {
     width: 20vw;
 }
-label{
+
+label {
     color: rgb(241, 72, 72)
 }
-button{
+
+button {
     background-color: rgb(21, 21, 248);
     transition: 0.5s;
     color: #ffffff;
@@ -63,7 +71,8 @@ button{
     width: 15vw;
     height: 5vh;
 }
-button:hover{
+
+button:hover {
     color: rgb(21, 21, 248);
     background-color: #ffffff;
 }
