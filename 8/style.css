@@ -17,7 +17,6 @@ body{
     text-align:center;
     font-size:35px;
     font-weight: 700;
-    position: relative;
 }
 #timerTitle{
     width: 10vw;
@@ -27,14 +26,17 @@ body{
     text-align: center;
 }
 #currentTime{
+    display: flex;
     border:solid;
     width:20vw;
     height:15vh;
     background-color: rgba(65, 54, 54, 0.703);
     color: rgb(0, 132, 247);
+    text-align: center;
+    justify-content: space-evenly;
+    font-size:20px ;
 }
-#firstNameLabel{
-    font-size: 30px;
+#birthdayLabel{
     color: rgb(0, 0, 0);
 }
 form{
@@ -49,4 +51,7 @@ form{
 }
 input,button{
     width: 20vw;
+}
+label{
+    color: rgb(241, 72, 72)
 }

@@ -1,4 +1,10 @@
-currentTime.inner
+var currnetHour=new Date().getHours()
+var currentMinutes=new Date().getMinutes()
+var currentSeconds=new Date().getSeconds()
+currentTime.innerHTML+=`<h1>${currnetHour}:${currentMinutes}:${currentSeconds}</h1>`
+function name(params) {
+    
+}
 var counter=0
 function checkForm() {
     if (
@@ -13,39 +19,40 @@ function checkForm() {
         return true
     }
     if (firstNameInput.value[0] === firstNameInput.value[0].toUpperCase() != true) {
-        firstNameLabel.innerHTML = `<span> name need to start with upper case</span>`
-        firstNameInput.style.border = `1px dotted red`
+        firstNameLabel.innerHTML = `<span>Name need to start with upper case</span>`
+        firstNameInput.style.border = `3px solid red`
     }
     else {
         firstNameInput.style.border = ``
     }
     if (lastNameInput.value.length <= 20 != true) {
-        lastNameLable.innerHTML = `<span>last name need to be less then 20 charat</span>`
-        lastNameInput.style.border = `1px dotted red`
+        lastNameLable.innerHTML = `<span>Last name need to be less then 20 charat</span>`
+        lastNameInput.style.border = `3px solid red`
     }
     else {
         lastNameInput.style.border = ``
     }
     if (new Date().getFullYear() - +birthdayInput.value.substr(0, 4) > 16 != true
         ||new Date().getFullYear() - +birthdayInput.value.substr(0, 4) < 65 != true) {
-        birthdayLabel.innerHTML = `<span>your age is less then 16 or more then 65</span>`
-        birthdayInput.style.border = `1px dotted red`
+        birthdayLabel.innerHTML = `<span>Your age is less then 16 or more then 65</span>`
+        birthdayInput.style = `border:3px solid red;`
+        birthdayLabel.style=`color:rgb(241, 72, 72);`
     }
     else {
         birthdayInput.style.border = ``
     }
     if ((emailInput.value.lastIndexOf(".com") == emailInput.value.length - 4 != true
         || emailInput.value.lastIndexOf(".co.il") == emailInput.value.length - 6 != true)) {
-        emailLabel.innerHTML = `<span>your email is not as exepted</span><br>`
-        emailInput.style.border = `1px dotted red`
+        emailLabel.innerHTML = `<span>Your email is not as exepted</span><br>`
+        emailInput.style.border = `3px solid red`
     }
     else {
         emailInput.style.border = ``
     }
     if (phoneInput.value[0] == 0 != true
         ||phoneInput.value.length == 10) {
-        phoneLabel.innerHTML = `<span>your phone number most contain 10 numbers and start with 0</span><br>`
-        phoneInput.style.border = `1px dotted red`
+        phoneLabel.innerHTML = `<span>Your phone number most contain 10 numbers<br> and start with 0</span><br>`
+        phoneInput.style.border = `3px solid red`
     }
     else{
         phoneInput.style.border = ``
@@ -65,7 +72,7 @@ timerTitle.innerHTML=`if you wrong 4 times the timer will start count down 30 se
 timer.innerHTML=`00:${sec}`
 function countDown() {
     sec--
-    timerArea.innerHTML=`00:${sec}`
+    timer.innerHTML=`00:${sec}`
     firstNameInput.disabled = true;
     lastNameInput.disabled = true;
     birthdayInput.disabled = true;
@@ -73,6 +80,9 @@ function countDown() {
     phoneInput.disabled = true;
     roleInput.disabled = true;
     btnSubmit.disabled = true;
+    if(sec<10){
+        timer.innerHTML=`00:0${sec}`
+    }
     if(sec==0)
     {
         firstNameInput.disabled = false;
@@ -85,7 +95,7 @@ function countDown() {
         sec=30
         counter=0
         stopCounter()
-        timerArea.innerHTML=`00:${sec}`
+        timer.innerHTML=`00:${sec}`
     }
 }
 var counterInterval;
@@ -96,3 +106,4 @@ function startCONTER() {
 function stopCounter() {
     clearInterval(counterInterval)
 }
+
