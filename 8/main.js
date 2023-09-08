@@ -56,7 +56,7 @@ function checkForm() {
     }
     if (new Date().getFullYear() - +birthdayInput.value.substr(0, 4) > 16 != true
         || new Date().getFullYear() - +birthdayInput.value.substr(0, 4) < 65 != true) {
-        birthdayLabel.innerHTML = `<span>*Your age is less then 16 or more then 65</span>`
+        birthdayLabel.innerHTML = `<span>*Your age is need to be more 16 and less then 65</span>`
         birthdayInput.style = `border:3px solid red;`
         birthdayLabel.style = `color:rgb(241, 72, 72);`
     }
@@ -65,7 +65,7 @@ function checkForm() {
     }
     if ((emailInput.value.lastIndexOf(".com") == emailInput.value.length - 4 != true
         && emailInput.value.lastIndexOf(".co.il") == emailInput.value.length - 6 != true)) {
-        emailLabel.innerHTML = `<span>*Your email is not as exepted</span><br>`
+        emailLabel.innerHTML = `<span>*Your email need to end with '.com' or '.co.il'</span><br>`
         emailInput.style.border = `3px solid red`   
     }
     else {
@@ -127,9 +127,9 @@ function stopCounter() {
     clearInterval(counterInterval)
 }
 
+//first name valid
 function isFirstNameValid() {
     if ( firstNameInput.value[0] === firstNameInput.value[0].toUpperCase()) {
-        firstNameLabel.innerHTML = `<span></span>`
         return false;
     }else{        
         firstNameLabel.innerHTML = `<span>*Name need to start with upper case</span>`
@@ -140,9 +140,9 @@ firstNameInput.addEventListener('change',
     function () {
         lastNameInput.disabled = isFirstNameValid()
 })
+//last name valid
 function isLastNameValid() {
     if (lastNameInput.value.length <= 20) {
-        lastNameLable.innerHTML = `<span></span>`
         return false
     }
     else{
@@ -154,6 +154,24 @@ lastNameInput.addEventListener('change',
 function () {
     birthdayInput.disabled=isLastNameValid()
 })
+
+function isBirthdayValid() {
+    if (new Date().getFullYear() - +birthdayInput.value.substr(0, 4) > 16 !=true
+    || new Date().getFullYear() - +birthdayInput.value.substr(0, 4) < 65 !=true) {
+       birthdayLabel.innerHTML = `<span>*Your age is less then 16 or more then 65</span>`
+        birthdayInput.style = `border:3px solid red;`
+        return true
+    }   
+    console.log('SDASD');
+    birthdayInput.innerHTML = `<span>ff</span>`
+    return false
+}
+birthdayInput.addEventListener('change',
+function () {
+    emailInput.disabled=isBirthdayValid()
+})
+
+//bithday valid
 function isBirthdayValid() {
     if (new Date().getFullYear() - +birthdayInput.value.substr(0, 4) > 16 != true
     || new Date().getFullYear() - +birthdayInput.value.substr(0, 4) < 65 != true) {
@@ -161,19 +179,39 @@ function isBirthdayValid() {
         birthdayInput.style = `border:3px solid red;`
         return true
     } else {
-          birthdayInput.innerHTML = `<span>ff</span>`
         return false
     }
 }
-birthdayInput.addEventListener('change',forChangeBirh)
-function forChangeBirh() {
+birthdayInput.addEventListener('change',
+function () {
     emailInput.disabled=isBirthdayValid()
-}
+})
+//email valid
 function isEmailValid() {
     if ((emailInput.value.lastIndexOf(".com") == emailInput.value.length - 4 != true
         && emailInput.value.lastIndexOf(".co.il") == emailInput.value.length - 6 != true)) {
-        
+            emailLabel.innerHTML = `<span>*Your email need to end with '.com' or '.co.il'</span><br>`
+            return true
     } else {
-        
+        return false
     }
 }
+emailInput.addEventListener('change',
+function () {
+    phoneInput.disabled=isEmailValid()
+})
+
+//phone valid
+function isPhoneValid() {
+    if ((phoneInput.value[0] == 0 != true
+        || phoneInput.value.length == 10!=true)) {
+            phoneLabel.innerHTML = `<span>*Your phone number most contain 10 numbers<br> and start with 0</span><br>`
+    } else {
+        return false
+    }
+}
+phoneInput.addEventListener('change',
+function () {
+    roleInput.disabled=isPhoneValid()
+})
+
